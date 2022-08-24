@@ -1,0 +1,17 @@
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Application.deps.json
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Application.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Application.pdb
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Domain.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Infrastructure.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Domain.pdb
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\bin\Debug\net6.0\AuthGatewayMessengerService.Infrastructure.pdb
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.csproj.AssemblyReference.cache
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.AssemblyInfoInputs.cache
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.AssemblyInfo.cs
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.csproj.CoreCompileInputs.cache
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.csproj.CopyComplete
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\refint\AuthGatewayMessengerService.Application.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\AuthGatewayMessengerService.Application.pdb
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Application\obj\Debug\net6.0\ref\AuthGatewayMessengerService.Application.dll

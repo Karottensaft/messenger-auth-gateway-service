@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "5lAvzFEmfa00uUSmtRiqshacYDSn/zodVWECd262aJw=",
+  "Source": "AuthGatewayMessengerService.WebAPI",
+  "BasePath": "_content/AuthGatewayMessengerService.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

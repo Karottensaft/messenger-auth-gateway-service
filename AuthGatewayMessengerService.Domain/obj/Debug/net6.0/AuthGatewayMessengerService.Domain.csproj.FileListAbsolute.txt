@@ -1,0 +1,12 @@
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\bin\Debug\net6.0\AuthGatewayMessengerService.Domain.deps.json
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\bin\Debug\net6.0\AuthGatewayMessengerService.Domain.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\bin\Debug\net6.0\AuthGatewayMessengerService.Domain.pdb
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.csproj.AssemblyReference.cache
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.AssemblyInfoInputs.cache
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.AssemblyInfo.cs
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\refint\AuthGatewayMessengerService.Domain.dll
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\AuthGatewayMessengerService.Domain.pdb
+D:\Projects\AuthGatewayMessengerService\AuthGatewayMessengerService.Domain\obj\Debug\net6.0\ref\AuthGatewayMessengerService.Domain.dll
