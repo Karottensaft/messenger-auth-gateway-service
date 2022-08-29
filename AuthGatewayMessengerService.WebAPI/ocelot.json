@@ -1,0 +1,152 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/user/all",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UserMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/all",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/me",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UserMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/me",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UserMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/{username}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/registration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UserMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/registration",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/user-settings",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UserMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/user-settings",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/delete",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "UserMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/delete",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/post/all",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PostMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/post/all",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/{username}/posts",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PostMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/username/posts",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/post/{postId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PostMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/post/{postId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/user/post-create",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PostMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/post-create",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/post/post-change",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PostMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/post/post-change",
+      "UpstreamHttpMethod": [ "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/post/delete",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "PostMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/post/delete",
+      "UpstreamHttpMethod": [ "DELETE" ]
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:49159"
+  }
+}

@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Configuration.AddJsonFile("ocelot.json", true, true);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -63,6 +65,7 @@ builder.Services
             ValidateIssuerSigningKey = true
         };
     });
+builder.Services.AddOcelot(builder.Configuration);
 
 builder.Services.AddAutoMapper(typeof(UserRegistrationProfile));
 
@@ -86,7 +89,7 @@ if (app.Environment.IsDevelopment())
 
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 
 app.UseStaticFiles();
@@ -98,6 +101,8 @@ app.MapControllers();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+await app.UseOcelot();
 
 app.Run();
 
