@@ -1,7 +1,6 @@
-﻿namespace AuthGatewayMessengerService.Application.Middlewares
+﻿namespace AuthGatewayMessengerService.Application.Middlewares;
+
+public interface ITokenBuilder<T> where T : class
 {
-    public interface ITokenBuilder<T> where T : class
-    {
-        T BuildToken(string username);
-    }
+    T BuildToken(string username);
 }

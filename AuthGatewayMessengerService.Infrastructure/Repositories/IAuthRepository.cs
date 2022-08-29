@@ -1,9 +1,8 @@
-﻿namespace AuthGatewayMessengerService.Infrastructure.Repositories
+﻿namespace AuthGatewayMessengerService.Infrastructure.Repositories;
+
+public interface IAuthRepository<T> : IDisposable
+    where T : class
 {
-    public interface IAuthRepository<T> : IDisposable
-        where T : class
-    {
-        Task<T> GerEntityByUsername(string username);
-        void PostEntity(T entity);
-    }
+    Task<T> GerEntityByUsername(string username);
+    void PostEntity(T entity);
 }

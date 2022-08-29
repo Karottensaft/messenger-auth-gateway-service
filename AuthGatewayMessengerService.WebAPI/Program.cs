@@ -54,9 +54,10 @@ builder.Services
     {
         cfg.RequireHttpsMetadata = true;
         cfg.SaveToken = true;
-        cfg.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+        cfg.TokenValidationParameters = new TokenValidationParameters
         {
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("placeholder-key-that-is-long-enough-for-sha256")),
+            IssuerSigningKey =
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes("placeholder-key-that-is-long-enough-for-sha256")),
             ValidateAudience = false,
             ValidateIssuer = false,
             ValidateLifetime = false,
@@ -88,7 +89,6 @@ if (app.Environment.IsDevelopment())
 }
 
 
-
 //app.UseHttpsRedirection();
 
 
@@ -105,4 +105,3 @@ app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 await app.UseOcelot();
 
 app.Run();
-

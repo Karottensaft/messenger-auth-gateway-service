@@ -1,39 +1,38 @@
 ﻿using AuthGatewayMessengerService.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace AuthGatewayMessengerService.Infrastructure.Repositories
+namespace AuthGatewayMessengerService.Infrastructure.Repositories;
+
+public class UnitOfWork : IDisposable
 {
-    public class UnitOfWork : IDisposable
+    private readonly AuthDbContext _context;
+
+    private bool _disposed;
+
+    public UnitOfWork(DbContextOptions<AuthDbContext> options)
     {
-        private readonly AuthDbContext _context;
+        _context = new AuthDbContext(options);
+        AuthRepository = new AuthRepository(_context);
+    }
 
-        private bool _disposed;
+    public AuthRepository AuthRepository { get; }
 
-        public UnitOfWork(DbContextOptions<AuthDbContext> options)
-        {
-            _context = new AuthDbContext(options);
-            AuthRepository = new AuthRepository(_context);
-        }
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        public AuthRepository AuthRepository { get; }
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-                if (disposing)
-                    _context.Dispose();
-            _disposed = true;
-        }
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+            if (disposing)
+                _context.Dispose();
+        _disposed = true;
     }
 }

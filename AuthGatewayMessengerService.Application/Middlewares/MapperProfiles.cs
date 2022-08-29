@@ -2,13 +2,12 @@
 using AuthGatewayMessengerService.Domain.Models;
 using AutoMapper;
 
-namespace AuthGatewayMessengerService.Application.Middlewares
+namespace AuthGatewayMessengerService.Application.Middlewares;
+
+public class UserRegistrationProfile : Profile
 {
-    public class UserRegistrationProfile : Profile
+    public UserRegistrationProfile()
     {
-        public UserRegistrationProfile()
-        {
-            CreateMap<RegistrationDto, UserModel>();
-        }
+        CreateMap<RegistrationDto, UserModel>();
     }
 }

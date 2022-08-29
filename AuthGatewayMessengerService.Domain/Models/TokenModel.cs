@@ -1,7 +1,6 @@
-﻿namespace AuthGatewayMessengerService.Domain.Models
+﻿namespace AuthGatewayMessengerService.Domain.Models;
+
+public class TokenModel
 {
-    public class TokenModel
-    {
-        public string AccessToken { get; set; }
-    }
+    public string AccessToken { get; set; }
 }

@@ -1,53 +1,47 @@
-﻿using AutoMapper;
-using AuthGatewayMessengerService.Application.Middlewares;
+﻿using AuthGatewayMessengerService.Application.Middlewares;
 using AuthGatewayMessengerService.Domain.Dto;
 using AuthGatewayMessengerService.Domain.Models;
 using AuthGatewayMessengerService.Infrastructure.Repositories;
+using AutoMapper;
 
-namespace AuthGatewayMessengerService.Application.Services
+namespace AuthGatewayMessengerService.Application.Services;
+
+public class AuthService : IAuthService
 {
-    public class AuthService : IAuthService
+    private readonly IMapper _mapper;
+    private readonly ITokenBuilder<TokenModel> _tokenBuilder;
+    private readonly UnitOfWork _unitOfWork;
+
+    public AuthService(UnitOfWork unitOfWork, IMapper mapper, ITokenBuilder<TokenModel> tokenBuilder)
     {
-        private readonly IMapper _mapper;
-        private readonly UnitOfWork _unitOfWork;
-        private readonly ITokenBuilder<TokenModel> _tokenBuilder;
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+        _tokenBuilder = tokenBuilder;
+    }
 
-        public AuthService(UnitOfWork unitOfWork, IMapper mapper, ITokenBuilder<TokenModel> tokenBuilder)
+    public async Task<TokenModel> ValidateUser(AuthDto userToValidate)
+    {
+        var userToMap = await _unitOfWork.AuthRepository.GerEntityByUsername(userToValidate.Username);
+        if (userToMap == null) throw new InvalidDataException("Wrong username or password");
+        if (HashPasswordMiddleware.VerifyPassword(userToValidate.Password, userToMap.Password))
+            return _tokenBuilder.BuildToken(userToValidate.Username);
+        throw new InvalidDataException("Wrong username or password");
+    }
+
+    public async Task CreateUser(RegistrationDto userToMap)
+    {
+        var userToValidate = await _unitOfWork.AuthRepository.GerEntityByUsername(userToMap.Username);
+
+        if (userToValidate == null)
         {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
-            _tokenBuilder = tokenBuilder;
+            userToMap.Password = HashPasswordMiddleware.CreatePasswordHash(userToMap.Password);
+            var user = _mapper.Map<UserModel>(userToMap);
+            _unitOfWork.AuthRepository.PostEntity(user);
+            await _unitOfWork.SaveAsync();
         }
-
-        public async Task<TokenModel> ValidateUser(AuthDto userToValidate)
+        else
         {
-            var userToMap = await _unitOfWork.AuthRepository.GerEntityByUsername(userToValidate.Username);
-            if (userToMap == null) throw new InvalidDataException("Wrong username or password");
-            if (HashPasswordMiddleware.VerifyPassword(userToValidate.Password, userToMap.Password))
-            {
-                return _tokenBuilder.BuildToken(userToValidate.Username);
-            }
-            else
-            {
-                throw new InvalidDataException("Wrong username or password");
-            }
-        }
-
-        public async Task CreateUser(RegistrationDto userToMap)
-        {
-            var userToValidate = await _unitOfWork.AuthRepository.GerEntityByUsername(userToMap.Username);
-
-            if (userToValidate == null)
-            {
-                userToMap.Password = HashPasswordMiddleware.CreatePasswordHash(userToMap.Password);
-                var user = _mapper.Map<UserModel>(userToMap);
-                _unitOfWork.AuthRepository.PostEntity(user);
-                await _unitOfWork.SaveAsync();
-            }
-            else
-            {
-                throw new ArgumentException("User already exist.");
-            }
+            throw new ArgumentException("User already exist.");
         }
     }
 }
