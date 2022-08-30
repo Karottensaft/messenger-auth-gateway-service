@@ -6,13 +6,17 @@ using AuthGatewayMessengerService.Infrastructure.Data;
 using AuthGatewayMessengerService.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using MMLib.SwaggerForOcelot.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("ocelot.json", true, true);
+
+builder.Services.AddSwaggerForOcelot(builder.Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -50,14 +54,13 @@ builder.Services
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
-    .AddJwtBearer(cfg =>
+    .AddJwtBearer("TokenKey", cfg =>
     {
         cfg.RequireHttpsMetadata = true;
         cfg.SaveToken = true;
         cfg.TokenValidationParameters = new TokenValidationParameters
         {
-            IssuerSigningKey =
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes("placeholder-key-that-is-long-enough-for-sha256")),
+            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
             ValidateAudience = false,
             ValidateIssuer = false,
             ValidateLifetime = false,
@@ -66,6 +69,7 @@ builder.Services
             ValidateIssuerSigningKey = true
         };
     });
+
 builder.Services.AddOcelot(builder.Configuration);
 
 builder.Services.AddAutoMapper(typeof(UserRegistrationProfile));
@@ -90,7 +94,10 @@ if (app.Environment.IsDevelopment())
 
 
 //app.UseHttpsRedirection();
-
+app.UseSwaggerForOcelotUI(opt =>
+{
+    opt.PathToSwaggerGenerator = "/swagger/docs";
+});
 
 app.UseStaticFiles();
 

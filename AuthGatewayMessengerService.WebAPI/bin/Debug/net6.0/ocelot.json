@@ -10,7 +10,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/all",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "user",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/me",
@@ -22,7 +27,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/me",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "user",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/{username}",
@@ -34,7 +44,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/{username}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "user",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/registration",
@@ -46,7 +61,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/registration",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "user",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/user-settings",
@@ -58,7 +78,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/user-settings",
-      "UpstreamHttpMethod": [ "PUT" ]
+      "UpstreamHttpMethod": [ "PUT" ],
+      "SwaggerKey": "user",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/delete",
@@ -70,7 +95,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/delete",
-      "UpstreamHttpMethod": [ "DELETE" ]
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "SwaggerKey": "user",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/post/all",
@@ -82,7 +112,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/post/all",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "post",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/{username}/posts",
@@ -94,7 +129,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/username/posts",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "post",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/post/{postId}",
@@ -106,7 +146,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/post/{postId}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "post",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/post-create",
@@ -118,7 +163,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user/post-create",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "post",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/post/post-change",
@@ -130,7 +180,12 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/post/post-change",
-      "UpstreamHttpMethod": [ "PUT" ]
+      "UpstreamHttpMethod": [ "PUT" ],
+      "SwaggerKey": "post",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/post/delete",
@@ -142,11 +197,40 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/post/delete",
-      "UpstreamHttpMethod": [ "DELETE" ]
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "SwaggerKey": "post",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     }
   ],
 
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:49159"
-  }
+    "BaseUrl": "http://localhost:49161"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "user",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "UserMessengerService.WebAPI",
+          "Version": "v1",
+          "Url": "http://localhost:49162/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "post",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "PostMessengerService.WebAPI",
+          "Version": "v1",
+          "Url": "http://UserMessengerService.WebAPI:49162/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
 }

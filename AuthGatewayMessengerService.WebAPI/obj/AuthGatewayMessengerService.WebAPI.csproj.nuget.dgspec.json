@@ -270,6 +270,10 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "MMLib.SwaggerForOcelot": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.8, )"

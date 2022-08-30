@@ -1,6 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
+using AuthGatewayMessengerService.Application.Middlewares;
 using AuthGatewayMessengerService.Domain.Models;
 using Microsoft.IdentityModel.Tokens;
 
@@ -10,9 +10,8 @@ public class TokenBuilder : ITokenBuilder<TokenModel>
 {
     public TokenModel BuildToken(string username)
     {
-        var signingKey =
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes("placeholder-key-that-is-long-enough-for-sha256"));
-        var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
+        var signingKey = AuthOptions.GetSymmetricSecurityKey();
+            var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, username)

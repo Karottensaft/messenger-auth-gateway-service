@@ -22,6 +22,12 @@ public class AuthenticationController : ControllerBase
         return await _authService.ValidateUser(user);
     }
 
+    [HttpPost("logintest")]
+    public async Task<RedirectResult> LoginTest(string redirect)
+    {
+        return RedirectPermanent(redirect);
+    }
+
     [HttpPost("registration")]
     public async Task PostUser([FromBody] RegistrationDto user)
     {
