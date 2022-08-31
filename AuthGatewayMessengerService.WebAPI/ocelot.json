@@ -203,6 +203,40 @@
         "AuthenticationProviderKey": "TokenKey",
         "AllowedScopes": []
       }
+    },
+    {
+      "DownstreamPathTemplate": "/auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "AuthGatewayMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/auth/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "auth",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/auth/registration",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "AuthGatewayMessengerService.WebAPI",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/auth/registration",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "auth",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TokenKey",
+        "AllowedScopes": []
+      }
     }
   ],
 
@@ -212,25 +246,36 @@
   "SwaggerEndPoints": [
     {
       "Key": "user",
-      "TransformByOcelotConfig": true,
+      "TakeServersFromDownstreamService": true,
       "Config": [
         {
           "Name": "UserMessengerService.WebAPI",
           "Version": "v1",
-          "Url": "http://localhost:49162/swagger/v1/swagger.json"
+          "Url": "http://UserMessengerService.WebAPI:80/swagger/v1/swagger.json"
         }
       ]
     },
     {
       "Key": "post",
-      "TransformByOcelotConfig": true,
+      "TakeServersFromDownstreamService": true,
       "Config": [
         {
           "Name": "PostMessengerService.WebAPI",
           "Version": "v1",
-          "Url": "http://UserMessengerService.WebAPI:49162/swagger/v1/swagger.json"
+          "Url": "http://PostMessengerService.WebAPI:80/swagger/v1/swagger.json"
         }
       ]
+    },
+    {
+      "Key": "auth",
+      "TakeServersFromDownstreamService": true,
+      "Config": [
+        {
+          "Name": "AuthGatewayMessengerService.WebAPI",
+          "Version": "v1",
+          "Url": "http://AuthGatewayMessengerService.WebAPI:80/swagger/v1/swagger.json"
+        }
+      ] 
     }
   ]
 }

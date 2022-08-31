@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AuthGatewayMessengerService.WebAPI.Controllers;
 
-[Route("api/[controller]")]
 [ApiController]
 public class AuthenticationController : ControllerBase
 {
@@ -16,19 +15,19 @@ public class AuthenticationController : ControllerBase
         _authService = authService;
     }
 
-    [HttpPost("login")]
+    [HttpPost("auth/login")]
     public async Task<TokenModel> Login([FromBody] AuthDto user)
     {
         return await _authService.ValidateUser(user);
     }
 
-    [HttpPost("logintest")]
+    [HttpPost("auth/logintest")]
     public async Task<RedirectResult> LoginTest(string redirect)
     {
         return RedirectPermanent(redirect);
     }
 
-    [HttpPost("registration")]
+    [HttpPost("auth/registration")]
     public async Task PostUser([FromBody] RegistrationDto user)
     {
         await _authService.CreateUser(user);

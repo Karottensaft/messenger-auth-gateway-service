@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "5lAvzFEmfa00uUSmtRiqshacYDSn/zodVWECd262aJw=",
+  "Hash": "snAKkAr3nohFNLULHrLEvN1UCwjES/z7EnXDZYQ5tb0=",
   "Source": "AuthGatewayMessengerService.WebAPI",
   "BasePath": "_content/AuthGatewayMessengerService.WebAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "AuthGatewayMessengerService.WebAPI\\wwwroot",
+      "Source": "AuthGatewayMessengerService.WebAPI",
+      "ContentRoot": "D:\\Projects\\AuthGatewayMessengerService\\AuthGatewayMessengerService.WebAPI\\wwwroot\\",
+      "BasePath": "_content/AuthGatewayMessengerService.WebAPI",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
