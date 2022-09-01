@@ -14,7 +14,7 @@ public class TokenBuilder : ITokenBuilder<TokenModel>
             var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, username)
+            new Claim(ClaimsIdentity.DefaultNameClaimType, username)
         };
         var jwt = new JwtSecurityToken(claims: claims, signingCredentials: signingCredentials);
         var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);

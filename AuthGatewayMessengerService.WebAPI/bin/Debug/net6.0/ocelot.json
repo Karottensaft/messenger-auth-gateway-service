@@ -215,11 +215,7 @@
       ],
       "UpstreamPathTemplate": "/gateway/auth/login",
       "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "auth",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "TokenKey",
-        "AllowedScopes": []
-      }
+      "SwaggerKey": "auth"
     },
     {
       "DownstreamPathTemplate": "/auth/registration",
@@ -232,11 +228,7 @@
       ],
       "UpstreamPathTemplate": "/gateway/auth/registration",
       "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "auth",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "TokenKey",
-        "AllowedScopes": []
-      }
+      "SwaggerKey": "auth"
     }
   ],
 

@@ -48,6 +48,8 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
+
+
 builder.Services
     .AddAuthentication(options =>
     {
@@ -98,6 +100,7 @@ app.UseSwaggerForOcelotUI(opt =>
 {
     opt.PathToSwaggerGenerator = "/swagger/docs";
 });
+
 
 app.UseStaticFiles();
 
